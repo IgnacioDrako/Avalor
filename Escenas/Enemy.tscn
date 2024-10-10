@@ -72,5 +72,10 @@ position = Vector2(5, 2)
 shape = SubResource("CircleShape2D_bmmaq")
 
 [node name="RayCastDerecha" type="RayCast2D" parent="."]
-position = Vector2(5, 0)
-target_position = Vector2(37, 0)
+visibility_layer = 2
+position = Vector2(5, 2)
+target_position = Vector2(23, 0)
+
+[node name="RayCastIzquierda" type="RayCast2D" parent="."]
+position = Vector2(5, 2)
+target_position = Vector2(-23, 0)
