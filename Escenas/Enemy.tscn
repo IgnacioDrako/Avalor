@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://dx2wq7v6nvo28"]
+
+[ext_resource type="Script" path="res://Escenas/enemy.gd" id="1_27mby"]
+[ext_resource type="Texture2D" uid="uid://f54lx1omsfab" path="res://ASSet/Cacodaemon Sprite Sheet.png" id="1_o5hgh"]
+[ext_resource type="PackedScene" uid="uid://d3olpxbkwsnln" path="res://Scrip/hit_box.tscn" id="2_nqgf0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjt7r"]
+atlas = ExtResource("1_o5hgh")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gmqg"]
+atlas = ExtResource("1_o5hgh")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p87ew"]
+atlas = ExtResource("1_o5hgh")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlt8c"]
+atlas = ExtResource("1_o5hgh")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlgf0"]
+atlas = ExtResource("1_o5hgh")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xghj2"]
+atlas = ExtResource("1_o5hgh")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_27ret"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjt7r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gmqg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p87ew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlt8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlgf0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xghj2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bmmaq"]
+radius = 19.0263
+
+[node name="CacoDemonio" type="Node2D"]
+script = ExtResource("1_27mby")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_27ret")
+autoplay = "default"
+frame_progress = 0.672081
+
+[node name="HitBox" parent="." instance=ExtResource("2_nqgf0")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(5, 2)
+shape = SubResource("CircleShape2D_bmmaq")
+
+[node name="RayCastDerecha" type="RayCast2D" parent="."]
+position = Vector2(5, 0)
+target_position = Vector2(37, 0)

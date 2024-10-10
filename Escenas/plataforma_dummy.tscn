@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://6fn2o08mmvsg"]
+
+[ext_resource type="Texture2D" uid="uid://cboji1pgdxpfg" path="res://ASSet/Medieval_Castle_Asset_Pack/Medieval_Castle_Asset_Pack/Tiles/plataformInAll.png" id="1_fnsoo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_frn4r"]
+size = Vector2(128, 17)
+
+[node name="PlataformaDummy" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fnsoo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_frn4r")
+one_way_collision = true
